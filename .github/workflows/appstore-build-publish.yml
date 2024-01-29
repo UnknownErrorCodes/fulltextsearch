@@ -6,8 +6,13 @@
 name: Build and publish app release
 
 on:
-  release:
-    types: [published]
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 
 env:
   PHP_VERSION: 8.1
